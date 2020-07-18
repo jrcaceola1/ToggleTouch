@@ -3,7 +3,8 @@ xiname="Touchscreen"
 if [ "$#" -eq 1 ]; then
     xiname=$1 #to avoid possible error due to touchscreen.state mismatch, program may have to be run repeatedly, upto 3 times - unmitigated issue
 fi
-CS=$(cat ~/.toggletouch/touchscreen.state)
+CS=$(cat 
+)
 tsiid=$(xinput | grep -i $xiname | awk -F'id=' '{print $2}' | sed -r 's|^([^.]+).*$|\1|; s|^[^0-9]*([0-9]+).*$|\1|')
 if [ "$CS" = "OFF" ]; then
     xinput enable $tsiid
